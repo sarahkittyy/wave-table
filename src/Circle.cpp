@@ -57,7 +57,7 @@ const float Circle::getRadius() const
 
 sf::Vector2f Circle::getDotPos() const
 {
-	return mDot.getPosition();
+	return getTransform().transformPoint(mDot.getPosition());
 }
 
 sf::Color Circle::redShift(float speed) const

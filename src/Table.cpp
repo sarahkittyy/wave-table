@@ -11,6 +11,14 @@ void Table::update()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{
 		mPoints.clearPoints();
+		for (auto& c : mTopRow)
+		{
+			c.reset();
+		}
+		for (auto& c : mLeftColumn)
+		{
+			c.reset();
+		}
 	}
 
 	// Update all circles

@@ -43,6 +43,11 @@ void Circle::update()
 	setDotPos(t);
 }
 
+void Circle::reset()
+{
+	mClock.restart();
+}
+
 void Circle::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	states.transform *= getTransform();

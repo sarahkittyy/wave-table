@@ -26,6 +26,9 @@ public:
 	/// Returns the position of the dot circling around this circle.
 	sf::Vector2f getDotPos() const;
 
+	/// Reset the circles to their default positions
+	void reset();
+
 private:
 	/// SFML draw override.
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

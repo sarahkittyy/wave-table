@@ -29,6 +29,28 @@ void Line::updateVertices()
 	}
 }
 
+void Line::setPointA(sf::Vector2f a)
+{
+	mPt1 = a;
+	updateVertices();
+}
+
+void Line::setPointB(sf::Vector2f b)
+{
+	mPt2 = b;
+	updateVertices();
+}
+
+sf::Vector2f Line::getPointA() const
+{
+	return mPt1;
+}
+
+sf::Vector2f Line::getPointB() const
+{
+	return mPt2;
+}
+
 sf::Vector2f Line::getPointBetween(float t) const
 {
 	sf::Vector2f ret;

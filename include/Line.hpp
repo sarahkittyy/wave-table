@@ -7,7 +7,7 @@
 class Line : public sf::Drawable
 {
 public:
-	Line();
+	Line(sf::Vector2f a = {0,0}, sf::Vector2f b = {0,0});
 
 	void setPointA(sf::Vector2f a);
 	void setPointB(sf::Vector2f b);

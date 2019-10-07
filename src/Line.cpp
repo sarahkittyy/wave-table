@@ -1,9 +1,9 @@
 #include <math.h>
 #include "Line.hpp"
 
-Line::Line()
-	: mPt1(0, 0),
-	  mPt2(0, 0)
+Line::Line(sf::Vector2f a, sf::Vector2f b)
+	: mPt1(a),
+	  mPt2(b)
 {
 	mLine.setPrimitiveType(sf::Lines);
 	updateVertices();

@@ -7,6 +7,12 @@ Table::Table()
 
 void Table::update()
 {
+	// On (R) key press, reset all points
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+	{
+		mPoints.clearPoints();
+	}
+
 	// Update all circles
 	for (auto& c : mTopRow)
 	{
@@ -16,6 +22,8 @@ void Table::update()
 	{
 		c.update();
 	}
+
+	updateLines();
 }
 
 void Table::constructCircles()
@@ -32,15 +40,42 @@ void Table::constructCircles()
 	}
 }
 
+void Table::updateLines()
+{
+	mLines.clear();
+	// For every upper circle
+	for (auto& tc : mTopRow)
+	{   // For every left circle.
+		for (auto& lc : mLeftColumn)
+		{
+			// the two dot positions
+			sf::Vector2f dotL = lc.getDotPos();
+			sf::Vector2f dotT = tc.getDotPos();
+			// the meeting point.
+			sf::Vector2f meeting = { dotT.x, dotL.y };
+			// add the two lines
+			mLines.push_back(Line(dotT, meeting));
+			mLines.push_back(Line(dotL, meeting));
+			// add a point at the meeting points.
+			mPoints.addPoint(meeting);
+		}
+	}
+}
+
 void Table::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	for (auto& i : mTopRow)
 	{
-		target.draw(i);
+		target.draw(i, states);
 	}
-
 	for (auto& i : mLeftColumn)
 	{
-		target.draw(i);
+		target.draw(i, states);
 	}
+	for (auto& i : mLines)
+	{
+		target.draw(i, states);
+	}
+	target.draw(mPoints, states);
+	s
 }

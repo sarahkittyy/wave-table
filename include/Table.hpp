@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "Circle.hpp"
+#include "Line.hpp"
+#include "Points.hpp"
 
 /**
  * @brief The waveform table class.
@@ -21,7 +23,13 @@ private:
 	std::vector<Circle> mTopRow;
 	/// The left column of circles.
 	std::vector<Circle> mLeftColumn;
+	/// The vector of lines attached to circles.
+	std::vector<Line> mLines;
+	/// All points drawn to the screen.
+	Points mPoints;
 
 	/// Constructs all twelve circles
 	void constructCircles();
+	/// Update all connecting lines.
+	void updateLines();
 };

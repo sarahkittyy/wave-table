@@ -1,13 +1,12 @@
 #include <SFML/Graphics.hpp>
-#include "Circle.hpp"
+#include "Table.hpp"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(600, 600), "wave-table");
+	sf::RenderWindow window(sf::VideoMode(700, 700), "wave-table");
 
 	//* App object init
-	Circle c(1);
-	c.setPosition({ 100, 100 });
+	Table t;
 
 	// App loop
 	while (window.isOpen())
@@ -24,12 +23,12 @@ int main()
 				break;
 			}
 		}
-		//* Updates
-		c.update();
+		//* Update
+		t.update();
 
 		//* Render
 		window.clear(sf::Color(0x111111));
-		window.draw(c);
+		window.draw(t);
 		window.display();
 	}
 

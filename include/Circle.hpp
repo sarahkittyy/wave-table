@@ -20,6 +20,9 @@ public:
 	 */
 	void update();
 
+	/// Returns the radius of the big circle.
+	const float getRadius() const;
+
 private:
 	/// SFML draw override.
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -29,10 +32,10 @@ private:
 	/// The dot that rotates around the circle.
 	sf::CircleShape mDot;
 	/// The radius of the big circle.
-	const float RADIUS = 100;
+	const float RADIUS = 50;
 
 	/// Returns the redshift on the circle -- the faster the dot, the more red.
-	sf::Color redShift(float speed);
+	sf::Color redShift(float speed) const;
 
 	/// Sets the dot to a position 0 <= t <= 1, where t is the percentage around the circle.
 	void setDotPos(float t);

@@ -50,7 +50,12 @@ void Circle::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	target.draw(mDot, states);
 }
 
-sf::Color Circle::redShift(float speed)
+const float Circle::getRadius() const
+{
+	return RADIUS;
+}
+
+sf::Color Circle::redShift(float speed) const
 {
 	float red_percent = sigmoid(speed);
 	return sf::Color(red_percent * 255.f, 127, 127);

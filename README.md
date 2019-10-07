@@ -24,3 +24,7 @@ make
 # pwd = .../wave-table
 ./build/wave-table
 ```
+
+## Screenshot
+
+![Screenshot](screenshot.png)

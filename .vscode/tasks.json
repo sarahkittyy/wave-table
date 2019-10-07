@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "generate",
+			"type": "shell",
+			"options": {"cwd": "build"},
+			"command": "cmake",
+			"args": [
+				"-DCMAKE_BUILD_TYPE=DEBUG",
+				".."
+			]
+		},
+		{
+			"label": "make",
+			"type": "shell",
+			"options": {"cwd": "build"},
+			"command": "make",
+			"dependsOn": "generate"
+		},
+		{
+			"label": "run",
+			"type": "shell",
+			"command": "./build/wave-table",
+			"dependsOn": "make",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}

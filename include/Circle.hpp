@@ -23,6 +23,9 @@ public:
 	/// Returns the radius of the big circle.
 	const float getRadius() const;
 
+	/// Returns the position of the dot circling around this circle.
+	sf::Vector2f getDotPos() const;
+
 private:
 	/// SFML draw override.
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

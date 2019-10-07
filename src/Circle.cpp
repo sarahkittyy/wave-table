@@ -55,6 +55,11 @@ const float Circle::getRadius() const
 	return RADIUS;
 }
 
+sf::Vector2f Circle::getDotPos() const
+{
+	return mDot.getPosition();
+}
+
 sf::Color Circle::redShift(float speed) const
 {
 	float red_percent = sigmoid(speed);

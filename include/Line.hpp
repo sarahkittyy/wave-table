@@ -7,7 +7,7 @@
 class Line : public sf::Drawable
 {
 public:
-	Line(sf::Vector2f a = {0,0}, sf::Vector2f b = {0,0});
+	Line(sf::Vector2f a = { 0, 0 }, sf::Vector2f b = { 0, 0 });
 
 	void setPointA(sf::Vector2f a);
 	void setPointB(sf::Vector2f b);
@@ -32,5 +32,5 @@ private:
 	sf::Vector2f getPointBetween(float t) const;
 
 	/// Size of dot to split the dotted line into.
-	const float DOT_SIZE = 2;
+	const float DOT_SIZE = 16;
 };

@@ -15,17 +15,19 @@ void Line::updateVertices()
 	float length = std::hypot(mPt2.x - mPt1.x, mPt2.y - mPt1.y);
 	for (float t = 0; t < length - DOT_SIZE; t += DOT_SIZE)
 	{
+		float percent_through	  = t / (length - DOT_SIZE);
+		float percent_through_next = (t + 1) / (length - DOT_SIZE);
 		// Get the initial and next point.
-		sf::Vector2f current = getPointBetween(t);
-		sf::Vector2f next	= getPointBetween(t + DOT_SIZE);
+		sf::Vector2f current = getPointBetween(percent_through);
+		sf::Vector2f next	= getPointBetween(percent_through_next);
 
 		// Add a line from current to next.
 		mLine.append(sf::Vertex(
 			current,
-			sf::Color(127, 127, 127, 127)));
+			sf::Color(127, 127, 127)));
 		mLine.append(sf::Vertex(
 			next,
-			sf::Color(127, 127, 127, 127)));
+			sf::Color(127, 127, 127)));
 	}
 }
 
@@ -58,7 +60,7 @@ sf::Vector2f Line::getPointBetween(float t) const
 	ret.x = (mPt2.x - mPt1.x) * t;
 	ret.y = (mPt2.y - mPt1.y) * t;
 
-	return ret;
+	return ret + mPt1;
 }
 
 void Line::draw(sf::RenderTarget& target, sf::RenderStates states) const
